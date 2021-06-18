@@ -13,13 +13,8 @@ instruction memory 256 16-bit data
 | I-type           | opcode          | Rs          | Rt          | Rd          |
 | j-type           | opcode          |  XXXX     | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---------- address ---------- |
 
-** exception Beq takes 2 * 16-bits instead of 1 and has different structure
-
 ** opcode 0000 makes processor stop pc donot increment
-<pre>
-Beq code =>  line 1 => opcode + rs +rt+XXXX  
-             line 2 => XXXX + xxxx + addr
-</pre>
+
 ## Insturctions Sturcture
 | Instruction      | formulae        | opcode      |
 | ---------------- | -----------     | ----------- |
