@@ -23,7 +23,7 @@ always @(posedge clk or posedge rst)
       else  
            pc_now <= pc_next;  
  end  
-PCControl pccont(pc_now,op_code,inst_address, next_instruction[7:0],ALU_out, pc_next); 
+PCControl pccont(pc_now,op_code,inst_address,ALU_out, pc_next); 
 
 
 // alu
@@ -52,7 +52,7 @@ Memory mem(clk,rst, reg_write_en, rd, reg_write_data, rs, reg_read_data_1, rt, r
 
  // instruction memory
  wire [15:0] instruction_set,next_instruction;
- InstructionMemory insmem(pc_now, instruction_set,next_instruction); 
+ InstructionMemory insmem(pc_now, instruction_set); 
  assign {op_code , rs, rt, rd}=instruction_set;
 
 endmodule

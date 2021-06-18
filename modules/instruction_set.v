@@ -1,4 +1,4 @@
-module InstructionMemory(input [7:0] pc, output wire [15:0] instruction,output wire[15:0] next_instruction );  
+module InstructionMemory(input [7:0] pc, output wire [15:0] instruction );  
      reg [15:0] rom[255:0];  
      initial  begin  
           rom[8'd0]  = 16'b0001_0000_0001_0010;  
@@ -6,8 +6,8 @@ module InstructionMemory(input [7:0] pc, output wire [15:0] instruction,output w
           rom[8'd2]  = 16'b0001_0000_1011_0100;  
           rom[8'd3]  = 16'b1000_0010_0011_0010;  
           rom[8'd4]  = 16'b0110_0010_0100_0110;  
-          rom[8'd5]  = 16'b0000_0000_0000_0111; 
-          rom[8'd6]  = 16'b0101_0000_0000_0011;  
+          rom[8'd5]  = 16'b0101_0000_0000_0011; 
+          rom[8'd6]  = 16'b0000000000000000;  
           rom[8'd7]  = 16'b0000000000000000;  
           rom[8'd8]  = 16'b0000000000000000;  
           rom[8'd9]  = 16'b0000000000000000;  
@@ -36,5 +36,5 @@ module InstructionMemory(input [7:0] pc, output wire [15:0] instruction,output w
           rom[8'd32] = 16'b0000000000000000;  
      end  
      assign instruction = (pc < 32 )? rom[pc]: 16'd0;  
-     assign next_instruction = (pc < 31 )? rom[pc+1]: 16'd0;  
+     //assign next_instruction = (pc < 31 )? rom[pc+1]: 16'd0;  
  endmodule   

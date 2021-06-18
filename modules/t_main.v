@@ -15,4 +15,4 @@ always #10 clk=~clk;
         $dumpvars;
     end
 endmodule
-//iverilog -o main t_main.v main.v memory_controller.v PC_control.v  memory.v ALU.v ALU_controller.v controller.v data_memory.v
+//iverilog -o main.out t_main.v main.v memory_controller.v PC_control.v  memory.v ALU.v ALU_controller.v controller.v data_memory.v instruction_set.v
