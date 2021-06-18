@@ -1,16 +1,17 @@
 module main(input clk,rst);
 wire [3:0] op_code;
-wire [3:0] ALU_out, rs ,rt ,rd,null;
+wire [7:0] ALU_out;
+wire [3:0] rs ,rt ,rd;
 
 wire [7:0] inst_address;
 assign inst_address={rt,rd};
 
 wire reg_write_en;
 wire [3:0] reg_read_addr_2;
-wire [3:0] reg_write_data,reg_read_data_1,reg_read_data_2;
+wire [7:0] reg_write_data,reg_read_data_1,reg_read_data_2;
 
 
-wire [3:0] data_out;
+wire [7:0] data_out;
 wire data_write_en,data_read;
 
 //pc
@@ -28,11 +29,10 @@ PCControl pccont(pc_now,op_code,inst_address,ALU_out, pc_next);
 
 // alu
  wire [2:0] ALU_control;  
- wire [3:0] ALU_b; 
- wire zero;
+ wire [7:0] ALU_b; 
  
 ALUControl alccon( ALU_control,  ALU_b , op_code, rt, reg_read_data_2,rd); 
-ALU alu(reg_read_data_1,ALU_b, ALU_control,ALU_out,zero); 
+ALU alu(reg_read_data_1,ALU_b, ALU_control,ALU_out); 
 
 
 // memory

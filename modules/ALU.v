@@ -1,4 +1,4 @@
-module ALU(input [3:0] a,b,input [2:0] ALU_control,output reg [3:0] result,output zero);  
+module ALU(input [7:0] a,b,input [2:0] ALU_control,output reg [7:0] result);  
  always @(*)
  begin   
       case(ALU_control)  
@@ -12,8 +12,8 @@ module ALU(input [3:0] a,b,input [2:0] ALU_control,output reg [3:0] result,outpu
       3'b101: begin if (a==b) result = 4'd1;  
                      else result = 4'd0;  
                      end  
-      default:result = a + b; // add  
+      default:result = a + b; 
       endcase  
  end  
- assign zero = (result==4'd0) ? 1'b1: 1'b0;  
+ //assign zero = (result==8'd0) ? 1'b1: 1'b0;  
  endmodule  

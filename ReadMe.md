@@ -1,8 +1,8 @@
 # 16-bit MIPS module
 
 ## Memory information
-data memory 16 4-bit data
-regester memory 16 4-bit data
+data memory 16 8-bit data
+regester memory 16 8-bit data
 instruction memory 256 16-bit data
 
 ## Basic sturcture 
